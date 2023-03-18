@@ -1,0 +1,6 @@
+<%= form_with url: "/flights", method: "get" do %>
+  <div class="field">
+    <%= label_tag :depature_airport, "Departure airport" %>
+    <%= select_tag :departure_code, options_for_select(@depature_codes) %>
+  </div>
+<% end %>

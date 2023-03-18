@@ -1,19 +1,23 @@
-<%= form_with url: "/flights", method: "get" do %>
-  <div class="field">
-    <%= label_tag :departure_code, "Departure code" %>
-    <%= select_tag :departure_code, options_for_select(@depature_codes) %>
-  </div>
-  <div class="field">
-    <%= label_tag :arrival_code, "Arrival code" %>
-    <%= select_tag :arrival_code, options_for_select(@arrival_codes) %>
-  </div>
-  <div class="field">
-    <%= label_tag :num_tickets, "Number of passengers" %>
-    <%= select_tag :num_tickets, options_for_select(@num_passengers) %>
-  </div>
-  <div class="field">
-    <%= label_tag :date, "Date" %>
-    <%= select_tag :date, options_for_select(@dates) %>
-  </div>
-
-<% end %>
+<div class="<%= controller_name %>">
+  <%= form_with url: "/flights", method: "get" do %>
+    <div class="fields">
+      <div class="field">
+        <%= label_tag :departure_code, "Departure code" %>
+        <%= select_tag :departure_code, options_for_select(@depature_codes) %>
+      </div>
+      <div class="field">
+        <%= label_tag :arrival_code, "Arrival code" %>
+        <%= select_tag :arrival_code, options_for_select(@arrival_codes) %>
+      </div>
+      <div class="field">
+        <%= label_tag :num_tickets, "Number of passengers" %>
+        <%= select_tag :num_tickets, options_for_select(@num_passengers) %>
+      </div>
+      <div class="field">
+        <%= label_tag :date, "Date" %>
+        <%= select_tag :date, options_for_select(@dates) %>
+      </div>
+    </div>
+  
+  <% end %>
+</div>

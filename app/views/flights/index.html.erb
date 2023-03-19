@@ -25,10 +25,10 @@
   <% end %>
 
   <% if @matched_flights %>
-    <h2>Matched flights</h2>
+    <h2>Matched flights: <%= @matched_flights.size %></h2>
     <ul>
       <% @matched_flights.each do |flight| %>
-        <%= "Flight from #{flight.departure_airport.code} to #{flight.arrival_airport.code} at #{flight.start_time}" %>
+        <li><%= "Flight from #{flight.departure_airport.code} to #{flight.arrival_airport.code} at #{flight.start_time.strftime("%A, %d %b %Y %l:%M %p")}" %></li>
       <% end %>
     </ul>
   <% end %>

@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
       arrival_airport_id = params[:arrival_code]
       start_date = Date.strptime(params[:date], "%Y%m%d")
       start_time = start_date.beginning_of_day..start_date.end_of_day
-      @matched_flights = Flight.includes(:departure_airport, :arrival_airport).where(departure_airport_id:, arrival_airport_id:, start_time:)
+      @matched_flights = Flight.includes(:departure_airport, :arrival_airport).where(departure_airport_id:, arrival_airport_id:, start_time:).order(:start_time)
     end
   end
 

@@ -20,4 +20,4 @@ Flight.create(departure_airport: Airport.find(2), arrival_airport: Airport.find(
 Flight.create(departure_airport: Airport.find(2), arrival_airport: Airport.find(1), start_time: DateTime.now.beginning_of_day + 5.hours, duration: 180)
 Flight.create(departure_airport: Airport.find(1), arrival_airport: Airport.find(4), start_time: DateTime.now.beginning_of_day + 6.hours, duration: 100)
 Flight.create(departure_airport: Airport.find(1), arrival_airport: Airport.find(7), start_time: DateTime.now.beginning_of_day + 7.hours, duration: 360)
-Flight.create(departure_airport: Airport.find(5), arrival_airport: Airport.find(2), start_time: DateTime.now.beginning_of_day + 7.hours, duration: 240)
+Flight.create(departure_airport: Airport.find(1), arrival_airport: Airport.find(2), start_time: DateTime.now.beginning_of_day + 7.hours, duration: 240)

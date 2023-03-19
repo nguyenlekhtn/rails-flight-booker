@@ -1,3 +1,5 @@
+<h1>Available flights</h1>
+
 <div class="<%= controller_name %>">
   <%= form_with url: "/flights", method: "get" do %>
     <div class="fields">
@@ -17,7 +19,17 @@
         <%= label_tag :date, "Date" %>
         <%= select_tag :date, options_for_select(@dates) %>
       </div>
+      <%= submit_tag "Search" %>
     </div>
   
+  <% end %>
+
+  <% if @matched_flights %>
+    <h2>Matched flights</h2>
+    <ul>
+      <% @matched_flights.each do |flight| %>
+        <%= "Flight from #{flight.departure_airport.code} to #{flight.arrival_airport.code} at #{flight.start_time}" %>
+      <% end %>
+    </ul>
   <% end %>
 </div>

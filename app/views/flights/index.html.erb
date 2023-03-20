@@ -26,7 +26,7 @@
 
   <% if @matched_flights %>
     <h2>Select the flight</h2>
-    <%= form_with url: "/books/new", method: "get" do |form| %>
+    <%= form_with url: new_booking_url, method: "get" do |form| %>
       <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
         <div class="radio">
           <%= b.label { b.radio_button + b.text } %>
@@ -37,3 +37,4 @@
     <% end %>
   <% end %>
 </div>
+  

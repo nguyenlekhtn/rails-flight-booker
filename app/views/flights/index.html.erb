@@ -1,6 +1,6 @@
 <h1>Available flights</h1>
 
-<div class="<%= controller_name %>">
+<div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
   <%= form_with url: "/flights", method: "get" do %>
     <div class="fields">
       <div class="field">
@@ -25,11 +25,15 @@
   <% end %>
 
   <% if @matched_flights %>
-    <h2>Matched flights: <%= @matched_flights.size %></h2>
-    <ul>
-      <% @matched_flights.each do |flight| %>
-        <li><%= "Flight from #{flight.departure_airport.code} to #{flight.arrival_airport.code} at #{flight.start_time.strftime("%A, %d %b %Y %l:%M %p")}" %></li>
+    <h2>Select the flight</h2>
+    <%= form_with url: "/books/new", method: "get" do |form| %>
+      <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
+        <div class="radio">
+          <%= b.label { b.radio_button + b.text } %>
+        </div>
       <% end %>
-    </ul>
+      <%= hidden_field_tag "num_tickets", params[:num_tickets] %>
+      <%= form.submit "Submit" %>
+    <% end %>
   <% end %>
 </div>

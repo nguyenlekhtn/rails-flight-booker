@@ -1,4 +1,8 @@
-.flights .fields {
+.flights-index .fields {
   display: flex;
   gap: 20px;
+}
+
+.flights input[type="radio"]+label {
+  display: inline-block
 }

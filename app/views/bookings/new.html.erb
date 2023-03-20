@@ -1,0 +1,16 @@
+<div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
+  <%= form_with model: @booking do |form| %>
+    <p class="info">Flight date: <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+    <p class="info">Depature airport: <%= @flight.depature_airport.code %></p>
+    <p class="info">Arrival airport: <%= @flight.arrival_airport.code %></p>
+    <%= form.fields_for :passengers do |passengers_form| %>
+      <div class="field">
+        <%= passengers_form.label :name %>
+        <%= passengers_form.text_field :name %>
+      </div>
+      <div class="field">
+        <%= passengers_form.label :name %>
+        <%= passengers_form.text_field : %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,13 @@
+<h1>Booking info</h1>
+<p>Departure code: <%= @flight.departure_airport.code %></p>
+<p>Arrival code: <%= @flight.arrival_airport.code %></p>
+<p>Passengers</p>
+<ul>
+  <% @passengers.each_with_index do |passenger, index| %>
+    <li>
+      <p>Passenger <%= index + 1 %></p>
+      <p>Name: <%= passenger.name %></p>
+      <p>Email: <%= passenger.email %></p>
+    </li>
+  <% end %>
+</ul>

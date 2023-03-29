@@ -4,6 +4,7 @@
     <p class="info">Depature airport: <%= @flight.departure_airport.code %></p>
     <p class="info">Arrival airport: <%= @flight.arrival_airport.code %></p>
     <%= form.hidden_field :flight_id %>
+    Passengers
     <ul>
       <%= form.fields_for :passengers do |passengers_form| %>
         <li>

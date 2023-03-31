@@ -6,17 +6,22 @@
     <%= form.hidden_field :flight_id %>
     Passengers
     <ul>
-      <%= form.fields_for :passengers do |passengers_form| %>
-        <li>
-          <div class="field">
-            <%= passengers_form.label :name %>
-            <%= passengers_form.text_field :name %>
-          </div>
-          <div class="field">
-            <%= passengers_form.label :email %>
-            <%= passengers_form.text_field :email %>
-          </div>
-        </li>
+      <% @booking.passengers.each_with_index do |passenger, index| %>
+        <%= form.fields_for passenger do |passenger_form| %>
+          <li>
+            <p>Passenger <%= index + 1 %></p>
+            <div class="field">
+              <%= passenger_form.label :name %>
+              <%= passenger_form.text_field :name %>
+            </div>
+            <div class="field">
+              <%= passenger_form.label :email %>
+              <%= passenger_form.text_field :email %>
+            </div>
+          </li>
+
+        <% end %>
+
       <% end %>
     </ul>
     <%= form.submit %>

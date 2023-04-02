@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "standard", group: [:development, :test]
+
+gem 'simple_form'

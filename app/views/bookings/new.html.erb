@@ -1,26 +1,24 @@
 <div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
+  <h1>New booking form</h2>
+  <p class="info">Flight date: <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+  <p class="info">Depature airport: <%= @flight.departure_airport.code %></p>
+  <p class="info">Arrival airport: <%= @flight.arrival_airport.code %></p>
   <%= form_with model: @booking do |form| %>
-    <p class="info">Flight date: <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
-    <p class="info">Depature airport: <%= @flight.departure_airport.code %></p>
-    <p class="info">Arrival airport: <%= @flight.arrival_airport.code %></p>
     <%= form.hidden_field :flight_id %>
     Passengers
     <ul>
-      <% @booking.passengers.each_with_index do |passenger, index| %>
-        <%= form.fields_for passenger do |passenger_form| %>
-          <li>
-            <p>Passenger <%= index + 1 %></p>
-            <div class="field">
-              <%= passenger_form.label :name %>
-              <%= passenger_form.text_field :name %>
-            </div>
-            <div class="field">
-              <%= passenger_form.label :email %>
-              <%= passenger_form.text_field :email %>
-            </div>
-          </li>
-
-        <% end %>
+      <%= form.fields_for :passengers do |passenger_form| %>
+        <li>
+          <p>Passenger <%= passenger_form.options[:child_index] + 1 %></p>
+          <div class="field">
+            <%= passenger_form.label :name %>
+            <%= passenger_form.text_field :name %>
+          </div>
+          <div class="field">
+            <%= passenger_form.label :email %>
+            <%= passenger_form.text_field :email %>
+          </div>
+        </li>
 
       <% end %>
     </ul>

@@ -6,22 +6,11 @@
   <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id %>
     Passengers
-    <ul>
-      <%= form.fields_for :passengers do |passenger_form| %>
-        <li>
-          <p>Passenger <%= passenger_form.options[:child_index] + 1 %></p>
-          <div class="field">
-            <%= passenger_form.label :name %>
-            <%= passenger_form.text_field :name %>
-          </div>
-          <div class="field">
-            <%= passenger_form.label :email %>
-            <%= passenger_form.text_field :email %>
-          </div>
-        </li>
-
-      <% end %>
-    </ul>
+    <%= form.simple_fields_for :passengers, defaults: { wrapper_html: { class: 'field'}} do |passenger_form| %>
+      <p>Passenger <%= passenger_form.options[:child_index] + 1 %></p>
+      <%= passenger_form.input :name %>
+      <%= passenger_form.input :email %>
+    <% end %>
     <%= form.submit %>
   <% end %>
 </div>

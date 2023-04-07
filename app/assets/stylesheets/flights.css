@@ -124,7 +124,11 @@ select {
   background-color: #E5E7EB;
   padding: 5px 10px;
   border: 1px solid #1F2937;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+.flights-select__item:not(:last-child) {
+  margin-top: 2px;
 }
 
 .flights-select__item input {

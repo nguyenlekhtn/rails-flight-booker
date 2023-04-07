@@ -32,17 +32,19 @@
 
 
   <% if @matched_flights %>
-    <div class="container__item flight-select-cont">
-      <h2>Select your flight</h2>
-      <%= form_with url: new_booking_path, method: "get" do |form| %>
-        <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
-          <div class="radio flight_item">
-            <%= b.label { b.radio_button + b.text } %>
-          </div>
+    <div class="container__item flights-select-cont">
+      <div class="flights-select">
+        <h2 class="flights-select__title">Select your flight</h2>
+        <%= form_with url: new_booking_path, method: "get", class: "flights-select__form select-form" do |form| %>
+          <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
+            <div class="flights-select__item">
+              <%= b.label { b.radio_button + b.text } %>
+            </div>
+          <% end %>
+          <%= hidden_field_tag "num_tickets", params[:num_tickets] %>
+          <%= form.submit "Submit", class: "select-form__submmit button" %>
         <% end %>
-        <%= hidden_field_tag "num_tickets", params[:num_tickets] %>
-        <%= form.submit "Submit" %>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>

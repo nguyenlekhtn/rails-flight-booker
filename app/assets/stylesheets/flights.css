@@ -1,11 +1,4 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-}
-
-html, body, .flights-index {
+.flights-index {
   min-height: 100vh;
 }
 
@@ -141,4 +134,3 @@ select {
   padding: 0.5rem 1.25rem;
   font-weight: 800;
 }
-

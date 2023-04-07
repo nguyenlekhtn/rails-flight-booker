@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Norse Bold";
+  src: url("Norse-Bold.otf");
+}
+
+@font-face {
+  font-family: "Remachine Script";
+  src: url("RemachineScript_Personal_Use.ttf") format('truetype');
+}

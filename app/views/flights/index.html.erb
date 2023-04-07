@@ -1,39 +1,48 @@
-<h1>Available flights</h1>
-
 <div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
-  <%= form_with url: "/flights", method: "get" do %>
-    <div class="fields">
-      <div class="field">
-        <%= label_tag :departure_code, "Departure code" %>
-        <%= select_tag :departure_code, options_for_select(@depature_codes) %>
+  <div class="container__item logo-cont">
+      <div class="logo">
+        <h1 class="logo__title">Flight Booker</h1>
+        <%= image_tag "plane-icon-original", size: "48", alt: "Airplane icon", class: "logo__img" %>
       </div>
-      <div class="field">
-        <%= label_tag :arrival_code, "Arrival code" %>
-        <%= select_tag :arrival_code, options_for_select(@arrival_codes) %>
-      </div>
-      <div class="field">
-        <%= label_tag :num_tickets, "Number of passengers" %>
-        <%= select_tag :num_tickets, options_for_select(@num_passengers) %>
-      </div>
-      <div class="field">
-        <%= label_tag :date, "Date" %>
-        <%= select_tag :date, options_for_select(@dates) %>
-      </div>
-      <%= submit_tag "Search" %>
-    </div>
+  </div>
 
-  <% end %>
+  <div class="container__item flight-form-cont">
+      <%= form_with url: "/flights", method: "get", class: "form flex-col-cont" do %>
+        <div class="fields container__item">
+          <div class="field">
+            <%= label_tag :departure_code, "Departure code" %>
+            <%= select_tag :departure_code, options_for_select(@depature_codes) %>
+          </div>
+          <div class="field">
+            <%= label_tag :arrival_code, "Arrival code" %>
+            <%= select_tag :arrival_code, options_for_select(@arrival_codes) %>
+          </div>
+          <div class="field">
+            <%= label_tag :num_tickets, "Number of passengers" %>
+            <%= select_tag :num_tickets, options_for_select(@num_passengers) %>
+          </div>
+          <div class="field">
+            <%= label_tag :date, "Date" %>
+            <%= select_tag :date, options_for_select(@dates) %>
+          </div>
+        </div>
+        <div class="container__item submit-cont"><%= submit_tag "Search", class: "button" %></div>
+      <% end %>
+  </div>
+
 
   <% if @matched_flights %>
-    <h2>Select the flight</h2>
-    <%= form_with url: new_booking_path, method: "get" do |form| %>
-      <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
-        <div class="radio">
-          <%= b.label { b.radio_button + b.text } %>
-        </div>
+    <div class="container__item flight-select-cont">
+      <h2>Select your flight</h2>
+      <%= form_with url: new_booking_path, method: "get" do |form| %>
+        <%= form.collection_radio_buttons(:flight_id, @matched_flights, :id, :details) do |b| %>
+          <div class="radio flight_item">
+            <%= b.label { b.radio_button + b.text } %>
+          </div>
+        <% end %>
+        <%= hidden_field_tag "num_tickets", params[:num_tickets] %>
+        <%= form.submit "Submit" %>
       <% end %>
-      <%= hidden_field_tag "num_tickets", params[:num_tickets] %>
-      <%= form.submit "Submit" %>
-    <% end %>
+    </div>
   <% end %>
 </div>

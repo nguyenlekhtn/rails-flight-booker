@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* general */
+
+body {}
+
 .flights-index .fields {
   display: flex;
   gap: 20px;
@@ -5,4 +17,77 @@
 
 .flights input[type="radio"]+label {
   display: inline-block
+}
+
+
+/* logo section */
+
+.flights .logo-cont {
+  /* padding: 50px 0px; */
+  min-height: 100px;
+  background-color: #1F2937;
+  color: #F9FAF8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.flights .logo {
+  font-size: 48px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.flights .logo__title {
+  font-family: "Remachine Script";
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.flights .logo__img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(86deg) brightness(108%) contrast(101%);
+}
+
+
+/* form section */
+
+.flight-form-cont {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.flights .form {
+  max-width: 1000px;
+}
+
+label {
+  padding-right: 0.25rem;
+}
+
+.field:not(:last-child) {
+  padding-right: 0.5rem
+}
+
+.flights .button {
+  border-radius: 10px;
+  margin: 20px auto 0 auto;
+  padding: 0.5rem 4rem;
+  background-color: #1F2937;
+  color: #F9FAF8;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.flights .submit-cont {
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  padding: 0.5rem 1.25rem;
+  margin-top: 0.5rem;
 }

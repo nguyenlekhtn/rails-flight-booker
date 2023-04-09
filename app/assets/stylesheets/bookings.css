@@ -1,0 +1,30 @@
+.bookings,
+.bookings {
+  min-height: 100vh;
+}
+
+.bookings .container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--clr-dark-blue);
+  color: var(--clr-main-text);
+  padding: 50px 30px;
+}
+
+.bookings .page__title {
+  /* text-align: center; */
+  margin-top: 0px;
+}
+
+.bookings .info-type {
+  font-weight: 600;
+}
+
+.bookings .info-instruct {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.bookings .button {
+  margin-top: 2rem;
+}

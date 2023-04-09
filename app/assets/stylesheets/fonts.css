@@ -11,5 +11,11 @@
 @font-face {
   font-family: "Inter";
   src: url("inter-variablefont_slntwght-webfont.woff") format("woff"),
-    url("inter-variablefont_slntwght-webfont.woff") format(("woff2"));
+    url("inter-variablefont_slntwght-webfont.woff2") format(("woff2"));
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("figtree-variablefont_wght-webfont.woff") format("woff"),
+    url("figtree-variablefont_wght-webfont.woff2") format(("woff2"));
 }

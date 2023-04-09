@@ -1,16 +1,19 @@
 <div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
-  <h1>New booking form</h2>
-  <p class="info">Flight date: <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
-  <p class="info">Depature airport: <%= @flight.departure_airport.code %></p>
-  <p class="info">Arrival airport: <%= @flight.arrival_airport.code %></p>
-  <%= form_with model: @booking do |form| %>
-    <%= form.hidden_field :flight_id %>
-    Passengers
-    <%= form.simple_fields_for :passengers, defaults: { wrapper_html: { class: 'field'}} do |passenger_form| %>
-      <p>Passenger <%= passenger_form.options[:child_index] + 1 %></p>
-      <%= passenger_form.input :name %>
-      <%= passenger_form.input :email %>
+  <div class="container page">
+    <h1 class="page__title">New booking form</h2>
+    <p class="info"><span class="info-type">Flight date:</span> <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+    <p class="info"><span class="info-type">Depature airport:</span> <%= @flight.departure_airport.code %></p>
+    <p class="info"><span class="info-type">Arrival airport:</span> <%= @flight.arrival_airport.code %></p>
+    <%= form_with model: @booking do |form| %>
+      <%= form.hidden_field :flight_id %>
+      <p class="info-type">Passengers</p>
+      <p class="info-instruct">Please enter information for each passengers</p>
+      <%= form.simple_fields_for :passengers, defaults: { wrapper_html: { class: 'field'}} do |passenger_form| %>
+        <p class="info-type">Passenger <%= passenger_form.options[:child_index] + 1 %></p>
+        <%= passenger_form.input :name %>
+        <%= passenger_form.input :email %>
+      <% end %>
+      <%= form.submit class: "button primary-btn" %>
     <% end %>
-    <%= form.submit %>
-  <% end %>
+  </div>
 </div>

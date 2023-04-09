@@ -7,3 +7,9 @@
   font-family: "Remachine Script";
   src: url("RemachineScript_Personal_Use.ttf") format('truetype');
 }
+
+@font-face {
+  font-family: "Inter";
+  src: url("inter-variablefont_slntwght-webfont.woff") format("woff"),
+    url("inter-variablefont_slntwght-webfont.woff") format(("woff2"));
+}

@@ -74,3 +74,5 @@ end
 gem "standard", group: [:development, :test]
 
 gem 'simple_form'
+
+gem 'normalize-rails'

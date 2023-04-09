@@ -10,9 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --clr-dark-blue: #1F2937;
+  --clr-main-text: #f9faf8;
+  --clr-second-text: #E5E7EB;
+  --clr-blue: #3882F6;
+}
 
 .flex-col-cont {
   display: flex;
@@ -67,12 +75,38 @@ input[type="radio"]:checked::before {
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  /* box-sizing: border-box; */
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
 }
 
 html,
 body {
   min-height: 100vh;
+}
+
+body {
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.button {
+  background-color: var(--clr-blue);
+  color: var(--clr-main-text);
+  outline: none;
+  border: none;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--clr-dark-blue);
 }

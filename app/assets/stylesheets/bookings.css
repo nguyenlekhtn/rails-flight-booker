@@ -28,3 +28,18 @@
 .bookings .button {
   margin-top: 2rem;
 }
+
+
+
+.bookings .field {
+  display: flex;
+  width: 100%;
+}
+
+.bookings .field label {
+  width: 4rem;
+}
+
+.bookings .field input {
+  flex-grow: 1;
+}

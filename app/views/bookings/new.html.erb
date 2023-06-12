@@ -8,11 +8,27 @@
       <%= form.hidden_field :flight_id %>
       <p class="info-type">Passengers</p>
       <p class="info-instruct">Please enter information for each passengers</p>
-      <%= form.simple_fields_for :passengers, defaults: { wrapper_html: { class: 'field'}} do |passenger_form| %>
-        <p class="info-type">Passenger <%= passenger_form.options[:child_index] + 1 %></p>
-        <%= passenger_form.input :name %>
-        <%= passenger_form.input :email %>
+      <%= content_tag :div, nil, data: { controller: "passenger" } do %>
+
+        <%= @num_tickets.times do |i| %>
+          <%= form.fields_for @booking.passengers.build do |passenger_form| %>
+            <p class="info-type">Passenger <%= i + 1 %></p>
+            <div class="field">
+                <%= passenger_form.label :name %>
+                <%= passenger_form.text_field :name, placeholder: "Enter your name" %>
+            </div>
+            <div class="field">
+                <%= passenger_form.label :email %>
+                <%= passenger_form.text_field :email, placeholder: "Enter your email" %>
+            </div>
+          <% end %>
+        <% end %>
+
       <% end %>
+
+
+
+
       <%= form.submit class: "button primary-btn" %>
     <% end %>
   </div>

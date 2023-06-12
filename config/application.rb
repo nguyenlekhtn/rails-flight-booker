@@ -19,5 +19,6 @@ module RailsFlightBooker
     config.time_zone = "Hanoi"
     # config.eager_load_paths << Rails.root.join("extras")
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.exceptions_app = routes
   end
 end

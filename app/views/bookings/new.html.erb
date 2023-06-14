@@ -10,9 +10,8 @@
       <p class="info-instruct">Please enter information for each passengers</p>
       <%= content_tag :div, nil, data: { controller: "passenger" } do %>
 
-        <%= @num_tickets.times do |i| %>
-          <%= form.fields_for @booking.passengers.build do |passenger_form| %>
-            <p class="info-type">Passenger <%= i + 1 %></p>
+        <%#= @num_tickets.times do |i| %>
+            <p class="info-type">Passenger <%= passenger_form.options[:index] %></p>
             <div class="field">
                 <%= passenger_form.label :name %>
                 <%= passenger_form.text_field :name, placeholder: "Enter your name" %>
@@ -22,13 +21,9 @@
                 <%= passenger_form.text_field :email, placeholder: "Enter your email" %>
             </div>
           <% end %>
-        <% end %>
+        <%# end %>
 
       <% end %>
-
-
-
-
       <%= form.submit class: "button primary-btn" %>
     <% end %>
   </div>

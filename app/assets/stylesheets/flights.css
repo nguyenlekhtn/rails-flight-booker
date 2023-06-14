@@ -70,7 +70,7 @@ label {
   padding-right: 0.25rem;
 }
 
-.field:not(:last-child) {
+.flights-index .field:not(:last-child) {
   padding-right: 0.5rem
 }
 

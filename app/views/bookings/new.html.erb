@@ -8,20 +8,36 @@
       <%= form.hidden_field :flight_id %>
       <p class="info-type">Passengers</p>
       <p class="info-instruct">Please enter information for each passengers</p>
-      <%= content_tag :div, nil, data: { controller: "passenger" } do %>
-
-        <%#= @num_tickets.times do |i| %>
-            <p class="info-type">Passenger <%= passenger_form.options[:index] %></p>
-            <div class="field">
+      <%= content_tag :div, nil, data: { controller: "passengers", passengers_number_value: @num_tickets } do %>
+        <%= form.fields_for :passengers do |passenger_form| %>
+          <%= content_tag :div, nil, data: { passengers_target: "form" } do %>
+            <div class="passenger">
+              <div class="field">
                 <%= passenger_form.label :name %>
                 <%= passenger_form.text_field :name, placeholder: "Enter your name" %>
-            </div>
-            <div class="field">
-                <%= passenger_form.label :email %>
-                <%= passenger_form.text_field :email, placeholder: "Enter your email" %>
+              </div>
+              <div class="field">
+                  <%= passenger_form.label :email %>
+                  <%= passenger_form.text_field :email, placeholder: "Enter your email" %>
+              </div>
             </div>
           <% end %>
-        <%# end %>
+        <% end %>
+
+        <%= button_tag "Add passenger", data: { action: "passengers#append" } %>
+
+        <template data-passengers-target="template" >
+          <div class="passenger">
+            <div class="field">
+                <label for="booking_passengers_attributes___count___name">Name</label>
+                <input placeholder="Enter your name" type="text" name="booking[passengers_attributes][__count__][name]" id="booking_passengers_attributes___count___name">
+            </div>
+            <div class="field">
+                <label for="booking_passengers_attributes___count___email">Email</label>
+                <input placeholder="Enter your email" type="text" name="booking[passengers_attributes][__count__][email]" id="booking_passengers_attributes___count___email">
+            </div>
+          </div>
+        </template>
 
       <% end %>
       <%= form.submit class: "button primary-btn" %>

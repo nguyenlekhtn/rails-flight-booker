@@ -9,7 +9,7 @@
       <p class="info-type">Passengers</p>
       <p class="info-instruct">Please enter information for each passengers</p>
       <%= content_tag :div, nil, data: { controller: "passengers", passengers_number_value: @num_tickets } do %>
-        <%= form.fields_for :passengers do |passenger_form| %>
+        <%= form.fields_for :passengers, @booking.passengers do |passenger_form| %>
           <%= content_tag :div, nil, data: { passengers_target: "form" } do %>
             <div class="passenger">
               <div class="field">

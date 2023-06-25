@@ -13,7 +13,8 @@ export default class extends Controller {
     const clone = this.templateTarget.content.cloneNode(true)
     const passengerDiv = clone.querySelector(".passenger")
 
-    passengerDiv.innerHTML = passengerDiv.innerHTML.replace("__count__", this.numberValue)
+    passengerDiv.innerHTML = passengerDiv.innerHTML.replace(/__count__/g, this.numberValue)
+    console.log(passengerDiv.innerHTML)
     this.formTarget.appendChild(clone)
     this.numberValue++
   }
@@ -24,5 +25,10 @@ export default class extends Controller {
 
   templateTargetConnected() {
     console.log("Have template target")
+  }
+
+  remove(e) {
+    e.preventDefault();
+    Array.from(this.formTarget.querySelectorAll('.passenger')).at(-1)?.remove();
   }
 }

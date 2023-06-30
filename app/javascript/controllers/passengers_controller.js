@@ -29,6 +29,9 @@ export default class extends Controller {
 
   remove(e) {
     e.preventDefault();
-    Array.from(this.formTarget.querySelectorAll('.passenger')).at(-1)?.remove();
+    const passengerFields = Array.from(this.formTarget.querySelectorAll('.passenger'))
+    if(passengerFields.length > 1) {
+      passengerFields.at(-1)?.remove();
+    }
   }
 }

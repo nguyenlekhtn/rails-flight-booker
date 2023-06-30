@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "template", "form" ]
+  static targets = [ "template", "form", "passenger" ]
   static values = { number: Number }
 
   connect() {
@@ -29,7 +29,7 @@ export default class extends Controller {
 
   remove(e) {
     e.preventDefault();
-    const passengerFields = Array.from(this.formTarget.querySelectorAll('.passenger'))
+    const passengerFields = this.passengerTargets
     if(passengerFields.length > 1) {
       passengerFields.at(-1)?.remove();
     }

@@ -22,7 +22,7 @@
       <%= content_tag :div, nil, data: { controller: "passengers", passengers_number_value: @num_tickets } do %>
         <%= content_tag :div, data: { passengers_target: "form" } do %>
           <%= form.fields_for :passengers, @booking.passengers do |passenger_form| %>
-            <div class="passenger">
+            <div class="passenger" data-passengers-target="passenger">
               <div class="field">
                 <%= passenger_form.label :name %>
                 <%= passenger_form.text_field :name, placeholder: "Enter your name", required: true %>
@@ -41,7 +41,7 @@
         <%= button_tag "Remove", data: { action: "passengers#remove" } %>
 
         <template data-passengers-target="template" >
-          <div class="passenger">
+          <div class="passenger" data-passengers-target="passenger">
             <div class="field">
                 <label for="booking_passengers_attributes___count___name">Name</label>
                 <input required placeholder="Enter your name" type="text" name="booking[passengers_attributes][__count__][name]" id="booking_passengers_attributes___count___name">

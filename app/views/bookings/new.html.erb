@@ -6,6 +6,17 @@
     <p class="info"><span class="info-type">Arrival airport:</span> <%= @flight.arrival_airport.code %></p>
     <%= form_with model: @booking do |form| %>
       <%= form.hidden_field :flight_id %>
+      <% if @booking.errors.any? %>
+        <div class="errors">
+          <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved</h2>
+          <ul>
+            <% @booking.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <p class="info-type">Passengers</p>
       <p class="info-instruct">Please enter information for each passengers</p>
       <%= content_tag :div, nil, data: { controller: "passengers", passengers_number_value: @num_tickets } do %>

@@ -41,9 +41,14 @@
 }
 
 .bookings .field label {
-  width: 4rem;
+  width: 3rem;
+  margin-right: 2rem;
 }
 
 .bookings .field input {
-  flex-grow: 1;
+  min-width: 400px;
+}
+
+.errors {
+  color: rgb(162, 82, 82);
 }

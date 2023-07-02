@@ -5,7 +5,8 @@ class PassengerMailerTest < ActionMailer::TestCase
   #   assert true
   # end
   test "confirmation" do
-    email = PassengerMailer.with(passenger: Passenger.new(name: "aaa", email: "mail@example.com")).confirmation_email
+    passenger = Passenger.new(name: "aaa", email: "mail@example.com")
+    email = PassengerMailer.confirmation_email(passenger)
 
     assert_emails 1 do
       email.deliver_now
@@ -14,4 +15,4 @@ class PassengerMailerTest < ActionMailer::TestCase
     assert_equal ["mail@example.com"], email.to
     assert_equal "You have booked your ticket", email.subject
   end
-endbinding.break
+end

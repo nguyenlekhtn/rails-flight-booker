@@ -4,6 +4,10 @@ class Flight < ApplicationRecord
   has_many :bookings
 
   def details
-    "Flight from #{departure_airport.code} to #{arrival_airport.code} at #{start_time.strftime("%A, %d %b %Y %l:%M %p")}"
+    "Flight from #{departure_airport.code} to #{arrival_airport.code} at #{pretty_start_time}"
+  end
+
+  def pretty_start_time
+    start_time.strftime("%A, %d %b %Y %l:%M %p")
   end
 end

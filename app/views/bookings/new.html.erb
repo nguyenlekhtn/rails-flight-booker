@@ -1,7 +1,7 @@
 <div class="<%= controller_name %> <%= controller_name %>-<%= action_name %>">
   <div class="container page">
     <h1 class="page__title">New booking form</h2>
-    <p class="info"><span class="info-type">Flight date:</span> <%= @flight.start_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+    <p class="info"><span class="info-type">Flight date:</span> <%= @flight.pretty_start_time %></p>
     <p class="info"><span class="info-type">Depature airport:</span> <%= @flight.departure_airport.code %></p>
     <p class="info"><span class="info-type">Arrival airport:</span> <%= @flight.arrival_airport.code %></p>
     <%= form_with model: @booking do |form| %>

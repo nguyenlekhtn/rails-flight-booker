@@ -76,3 +76,5 @@ gem "standard", group: [:development, :test]
 gem 'simple_form'
 
 gem 'normalize-rails'
+
+gem "letter_opener", group: :development

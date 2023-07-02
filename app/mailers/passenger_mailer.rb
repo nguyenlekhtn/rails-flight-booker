@@ -1,8 +1,8 @@
 class PassengerMailer < ApplicationMailer
   default from: "ashvsmay00gmail.com"
   def confirmation_email
-    @passenger = params[:passenger]
+    @passengers = params[:passengers]
 
-    mail(to: @passenger.email, subject: "You have booked your ticket")
+    mail(to: @passengers.map { |passenger| passenger.email }, subject: "You have booked your ticket")
   end
 end

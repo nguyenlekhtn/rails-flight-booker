@@ -14,4 +14,4 @@ class PassengerMailerTest < ActionMailer::TestCase
     assert_equal ["mail@example.com"], email.to
     assert_equal "You have booked your ticket", email.subject
   end
-end
+endbinding.break

@@ -4,7 +4,11 @@ class Flight < ApplicationRecord
   has_many :bookings
 
   def details
-    "Flight from #{departure_airport.code} to #{arrival_airport.code} at #{pretty_start_time}"
+    "Flight #{info}"
+  end
+
+  def info
+    "from #{departure_airport.code} to #{arrival_airport.code} at #{pretty_start_time}"
   end
 
   def pretty_start_time

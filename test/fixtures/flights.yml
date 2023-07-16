@@ -4,14 +4,14 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  departure_airport: one_airport (Airport)
-  arrival_airport: two_airport (Airport)
+flight_one:
+  departure_airport: one_airport
+  arrival_airport: two_airport
   duration: 60
   start_time: DateTime.current
 
-two:
-  departure_airport: two_airport (Airport)
-  arrival_airport: one_airport (Airport)
+flight_two:
+  departure_airport: two_airport
+  arrival_airport: one_airport
   duration: 60
   start_time: DateTime.current

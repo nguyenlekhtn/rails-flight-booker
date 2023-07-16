@@ -7,9 +7,9 @@
 one:
   name: "one"
   email: "one@examkple.com"
-  booking: one
+  booking: booking_one
 #
 two:
   name: "two"
   email: "two@examkple.com"
-  booking: two
+  booking: booking_two

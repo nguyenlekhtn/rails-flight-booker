@@ -20,5 +20,6 @@ module RailsFlightBooker
     # config.eager_load_paths << Rails.root.join("extras")
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.exceptions_app = routes
+    # config.active_record.verify_foreign_keys_for_fixtures = false
   end
 end

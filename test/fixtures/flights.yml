@@ -8,10 +8,10 @@ flight_one:
   departure_airport: one_airport
   arrival_airport: two_airport
   duration: 60
-  start_time: DateTime.current
+  start_time: <%= DateTime.current %>
 
 flight_two:
   departure_airport: two_airport
   arrival_airport: one_airport
   duration: 60
-  start_time: DateTime.current
+  start_time: <%= DateTime.current %>
